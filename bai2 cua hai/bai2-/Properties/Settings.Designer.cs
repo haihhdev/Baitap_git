@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BAI_2.Properties
+namespace bai2_.Properties
 {
 
 

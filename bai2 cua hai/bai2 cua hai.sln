@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAI 2", "BAI 2\BAI 2.csproj", "{213CE7C1-8748-4446-B816-1475E6285751}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bai2-", "bai2-\bai2-.csproj", "{7B892E63-CE27-4B5A-9548-4CDCEFD44409}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{213CE7C1-8748-4446-B816-1475E6285751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{213CE7C1-8748-4446-B816-1475E6285751}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{213CE7C1-8748-4446-B816-1475E6285751}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{213CE7C1-8748-4446-B816-1475E6285751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B892E63-CE27-4B5A-9548-4CDCEFD44409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B892E63-CE27-4B5A-9548-4CDCEFD44409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B892E63-CE27-4B5A-9548-4CDCEFD44409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B892E63-CE27-4B5A-9548-4CDCEFD44409}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {25EC2843-76E1-4AAC-B29E-C0821C6D02D4}
+		SolutionGuid = {5F4091D0-0C90-427E-B1DB-F93AF8505E7F}
 	EndGlobalSection
 EndGlobal
