@@ -152,7 +152,6 @@ namespace MultichatApplication
                             message = ReplaceEmojis(message); // Thay thế mã emoji bằng emoji 
                             Broadcast(username, message, client);
 
-
                             // Cập nhật TextBox trên luồng giao diện người dùng
                             if (richTextBox1.InvokeRequired)
                             {
@@ -165,20 +164,8 @@ namespace MultichatApplication
                         }
                         else if (message.StartsWith("IMAGE: "))
                         {
-                            // Hình ảnh thì loại bỏ tiền tôs rồi mở trog picturebox 
-                            byte[] imageBytes = Convert.FromBase64String(message.Substring(7));
-                            Image image = ByteArrayToImage(imageBytes);
-                            UpdateChatHistorySafeCall(username, "Đã gửi một hình ảnh");
-
-                            // Cập nhật PictureBox trên luồng giao diện người dùng
-                            if (pictureBox1.InvokeRequired)
-                            {
-                                pictureBox1.Invoke(new MethodInvoker(delegate { pictureBox1.Image = image; }));
-                            }
-                            else
-                            {
-                                pictureBox1.Image = image;
-                            }
+                            //Thông báo người dùng đã gửi hình ảnh kèm username 
+                            UpdateChatHistorySafeCall("Administrator", $"Người dùng {username} đã gửi một hình ảnh");
                         }
                     }
                 }
@@ -205,7 +192,6 @@ namespace MultichatApplication
             message = message.Replace(":confused:", "😕");
             message = message.Replace(":crying:", "😢");
             message = message.Replace(":heart:", "❤️");
-            // Thêm các mã emoji khác tại đây...
 
             return message;
         }
@@ -286,6 +272,11 @@ namespace MultichatApplication
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

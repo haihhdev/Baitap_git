@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Net.Security;
 
 namespace MultichatApplication
 {
@@ -56,16 +57,15 @@ namespace MultichatApplication
                 {
                     int byte_count = net_stream.Read(data, 0, data.Length);
                     string message = Encoding.UTF8.GetString(data, 0, byte_count);
-                    if (message.StartsWith("[IMAGE]"))
+                    if (message.StartsWith("IMAGE: "))
                     {
-                        // Xử lý hình ảnh
-                        byte[] imageBytes = data.Skip(7).ToArray(); // Bỏ qua 7 byte đầu tiên ("[IMAGE]")
+                        string imageBase64 = message.Substring(7);
+                        byte[] imageBytes = Convert.FromBase64String(imageBase64);
                         Image image = ByteArrayToImage(imageBytes);
-                        pictureBox1.Image = image; // Hiển thị hình ảnh trong PictureBox
+                        pictureBox1.Image = image;
                     }
                     else
                     {
-                        // Xử lý văn bản
                         UpdateChatHistorySafeCall(null, message);
                     }
                     if (byte_count == 0)
@@ -169,7 +169,17 @@ namespace MultichatApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png, *.gif)|*.jpg;*.jpeg;*.png;*.gif";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string imagePath = openFileDialog.FileName;
+
+                    sendImage(imagePath);
+                }
+            }
+            /* OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Image image = Image.FromFile(openFileDialog.FileName);
@@ -181,7 +191,36 @@ namespace MultichatApplication
                 net_stream.Write(messageBytes, 0, messageBytes.Length);
                 net_stream.Flush();
             }
+            */
         }
+
+        private void sendImage(string imagePath)
+        {
+            try
+            {
+                if (tcpClient.Connected)
+                {
+                    // Đọc dữ liệu của ảnh từ đường dẫn tệp tin
+                    byte[] imageData = File.ReadAllBytes(imagePath);
+
+                    // Chuyển đổi dữ liệu ảnh sang chuỗi Base64
+                    string base64Image = Convert.ToBase64String(imageData);
+
+                    // Gửi dữ liệu ảnh dưới dạng chuỗi Base64
+                    NetworkStream net_stream = tcpClient.GetStream();
+                    byte[] message = Encoding.UTF8.GetBytes("IMAGE: " + base64Image);
+                    net_stream.Write(message, 0, message.Length);
+
+                    // Hiển thị ảnh trong pictureBox
+                    pictureBox1.Image = Image.FromFile(imagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi gửi hình ảnh: {ex.Message}");
+            }
+        }
+
 
     }
 }

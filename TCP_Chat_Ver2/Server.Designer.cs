@@ -34,8 +34,6 @@
             this.txtServerPort = new System.Windows.Forms.TextBox();
             this.lblPort = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserNumber
@@ -57,7 +55,7 @@
             // btnListen
             // 
             this.btnListen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListen.Location = new System.Drawing.Point(532, 20);
+            this.btnListen.Location = new System.Drawing.Point(535, 24);
             this.btnListen.Name = "btnListen";
             this.btnListen.Size = new System.Drawing.Size(89, 29);
             this.btnListen.TabIndex = 9;
@@ -89,21 +87,10 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.richTextBox1.Location = new System.Drawing.Point(4, 62);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 233);
+            this.richTextBox1.Size = new System.Drawing.Size(635, 233);
             this.richTextBox1.TabIndex = 13;
             this.richTextBox1.Text = "";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::MultichatApplication.Properties.Resources._2;
-            this.pictureBox1.Location = new System.Drawing.Point(440, 107);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 155);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // frmServer
             // 
@@ -111,7 +98,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 300);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUserNumber);
             this.Controls.Add(this.lblUserNumber);
             this.Controls.Add(this.btnListen);
@@ -120,7 +106,6 @@
             this.Name = "frmServer";
             this.Text = "TCP Server";
             this.Load += new System.EventHandler(this.frmServer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +119,5 @@
         private System.Windows.Forms.TextBox txtServerPort;
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
