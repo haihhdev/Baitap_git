@@ -24,6 +24,6 @@ II. Generate Certificate
 
 - Create the certificate : openssl x509 -req -sha256 -days 365 -in certa.csr -CA caa.pem -CAkey caa-key.pem -out certa.pem -CAcreateserial
 
-- Assuming the path to your generated CA certificate as C:\Users\HungPhung\ca.pem, run: : Import-Certificate -FilePath "C:\Users\HOANG HAI\caa.pem" -CertStoreLocation Cert:\LocalMachine\My
+- Assuming the path to your generated CA certificate as C:\Users\HOANG Hai\ca.pem, run: : Import-Certificate -FilePath "C:\Users\HOANG HAI\caa.pem" -CertStoreLocation Cert:\LocalMachine\My
 
 - Combine SSL Certificate and Private Key, and apply. : openssl pkcs12 -export -out certa.pfx -inkey certa-key.pem -in certa.pem
