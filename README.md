@@ -4,7 +4,8 @@ Link demo TCP Chat: https://drive.google.com/file/d/1Nqn20iRERptqJV4UaRF45y0bSoW
 
 Link demo SSL: https://drive.google.com/file/d/1HuygZNZGyTEK_D2QzmAxhPGV3KwnnQw6/view?usp=sharing
 
-Link emoji và hình ảnh: https://drive.google.com/file/d/1uRUT_bkUWLX3C1K9VSKTmmFOHgfc9KYi/view?usp=sharing
+Link emoji và hình ảnh: https://drive.google.com/file/d/1uRUT_bkUWLX3C1K9VSKTmmFOHgfc9KYi/view?usp=sharing (bản lỗi)
+                        https://drive.google.com/file/d/1nT6GWcWQV0l5ExHHhyIdPYoomWo4HnQd/view?usp=sharing (update)
 
 Password in this video is: nt106  
 Install OpenSSL. Open terminal with admnistrator role.
